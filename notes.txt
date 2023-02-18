@@ -1,1 +1,28 @@
+INSTALL LOCALLY
 
+pip install virtualenv
+virtualenv env
+pip install Flask
+pip install Flask-SQLAlchemy
+pip install psycopg2
+pip install Flask-Migrate
+flask db init
+
+
+CREATE DATABASE IN POSTGRES
+CREATE TABLE students (
+	id serial PRIMARY KEY,
+	fname VARCHAR ( 40 ) NOT NULL,
+	lname VARCHAR ( 40 ) NOT NULL,
+	email VARCHAR ( 40 ) NOT NULL
+);
+
+
+QUERY DATABASE IN POSTGRES
+SELECT * FROM students
+
+
+FIX ALEMBIC ISSUE:
+"database-migrations-using-flask-migrate/migrations/alembic.ini' before proceeding"
+
+ python3 -m flask db migrate
